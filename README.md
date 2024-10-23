@@ -67,3 +67,25 @@ Compare the calculated check digit with the last digit from the original input. 
 Input a credit card number in the console.
 The program will display each step of the validation process.
 At the end, the program will tell whether the card is valid or invalid.
+
+<h1>📈 ShareTrader - Max Profit Calculator with 2 Transactions</h1>
+
+<h2>Description</h2>
+The ShareTrader program helps traders calculate the maximum profit they can earn by making at most two transactions in a day. A transaction consists of buying and selling shares, and the second transaction can only begin after the first one is completed. The program uses stock prices provided by the user and calculates the maximum possible profit step-by-step.
+
+This project is built in Java and designed to run interactively through the command line.
+
+<h2>How It Works</h2>
+<h3>Input:</h3>
+The user enters daily stock prices as a space-separated list (e.g., 10 22 5 75 65 80).
+<h3>Logic:</h3>
+
+The program calculates
+Maximum profit for the first transaction (left to right).
+Maximum profit for the second transaction (right to left).
+Combines both results to determine the overall maximum profit.
+Each step of the calculation is displayed for better understanding.
+<h2>Output:</h2>
+
+It shows the detailed profit calculation per day and prints the maximum possible profit.
+
