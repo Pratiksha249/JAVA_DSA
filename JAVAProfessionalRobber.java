@@ -90,10 +90,10 @@ public class JAVAProfessionalRobber extends Robber {
         System.out.println("SquareHouse([5, 10, 2, 7]): " + robber.SquareHouse(new int[]{5, 10, 2, 7})); // Expected output: 17
         System.out.println("MultiHouseBuilding: " +
                 robber.MultiHouseBuilding(new int[][]{
-                    {5, 3, 8, 2},    // Expected max for first row: 13
-                    {10, 12, 7, 6},  // Expected max for second row: 17
-                    {4, 9, 11, 5},   // Expected max for third row: 20
-                    {8, 6, 3, 7}     // Expected max for fourth row: 9
-                })); // Expected output: 59
+                    {5, 3, 8, 2},   
+                    {10, 12, 7, 6},  
+                    {4, 9, 11, 5},   
+                    {8, 6, 3, 7}    
+                })); 
     }
 }
