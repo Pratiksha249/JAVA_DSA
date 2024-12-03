@@ -12,7 +12,9 @@ class Book {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
-        this.isAvailable = true;  
+        this.isAvailable = true;  //books are available
+    }
+
     public int getBookId() {
         return bookId;
     }
@@ -45,7 +47,6 @@ class Book {
         isAvailable = available;
     }
 
-   
     public void displayInfo() {
         System.out.println("Book ID: " + bookId);
         System.out.println("Title: " + title);
@@ -59,11 +60,10 @@ class ReferenceBook extends Book {
     private int edition;
 
     public ReferenceBook(int bookId, String title, String author, int edition) {
-        super(bookId, title, author);
+        super(bookId, title, author);  //call the constructor from the parent class
         this.edition = edition;
     }
 
-   
     public int getEdition() {
         return edition;
     }
@@ -72,19 +72,19 @@ class ReferenceBook extends Book {
         this.edition = edition;
     }
 
-    
     @Override
     public void displayInfo() {
-        super.displayInfo();  
+        super.displayInfo();  // Calling base class method
         System.out.println("Edition: " + edition);
     }
 }
 
+// Derived class
 class FictionBook extends Book {
     private String genre;
 
     public FictionBook(int bookId, String title, String author, String genre) {
-        super(bookId, title, author);
+        super(bookId, title, author);  
         this.genre = genre;
     }
 
@@ -96,10 +96,9 @@ class FictionBook extends Book {
         this.genre = genre;
     }
 
-   
     @Override
     public void displayInfo() {
-        super.displayInfo();  // Display base class info
+        super.displayInfo();  
         System.out.println("Genre: " + genre);
     }
 }
@@ -109,11 +108,10 @@ class Periodical extends ReferenceBook {
     private String issueFrequency;
 
     public Periodical(int bookId, String title, String author, int edition, String issueFrequency) {
-        super(bookId, title, author, edition);
+        super(bookId, title, author, edition);  
         this.issueFrequency = issueFrequency;
     }
 
-    
     public String getIssueFrequency() {
         return issueFrequency;
     }
@@ -122,14 +120,14 @@ class Periodical extends ReferenceBook {
         this.issueFrequency = issueFrequency;
     }
 
-   
     @Override
     public void displayInfo() {
-        super.displayInfo(); 
+        super.displayInfo();  // Call base class method
         System.out.println("Issue Frequency: " + issueFrequency);
     }
 }
 
+// Library class
 class Library {
     private List<Book> books;
 
@@ -137,34 +135,30 @@ class Library {
         books = new ArrayList<>();
     }
 
-    
     public void addBook(Book book) {
-        books.add(book);
+        books.add(book);  // Add book to the list
     }
 
-  
     public boolean borrowBook(int bookId) {
         for (Book book : books) {
             if (book.getBookId() == bookId && book.isAvailable()) {
-                book.setAvailable(false);
+                book.setAvailable(false);  // Mark book as borrowed
                 return true;
             }
         }
-        return false; ound
+        return false;  // Book not available
     }
 
-  
     public boolean returnBook(int bookId) {
         for (Book book : books) {
             if (book.getBookId() == bookId && !book.isAvailable()) {
-                book.setAvailable(true);
+                book.setAvailable(true);  // Mark book as returned
                 return true;
             }
         }
-        return false; 
+        return false;  
     }
 
-    
     public void displayAllBooks() {
         for (Book book : books) {
             book.displayInfo();
@@ -172,7 +166,6 @@ class Library {
         }
     }
 
-   
     public int getAvailableBooks() {
         int availableCount = 0;
         for (Book book : books) {
@@ -199,28 +192,27 @@ public class LibraryManagementSystem {
     public static void main(String[] args) {
         Library library = new Library();
 
-        
+        // Create books
         Book book1 = new ReferenceBook(1001, "Java Programming", "John Doe", 3);
         Book book2 = new FictionBook(1002, "It Starts with a Friend Request", "Sandeep Nagarkar", "Rom-Com");
         Book book3 = new Periodical(1003, "Atomic Habits", "Pratiksha N", 1, "Weekly");
 
+        // Add books to the library
         library.addBook(book1);
         library.addBook(book2);
         library.addBook(book3);
 
-        
+      
         library.displayAllBooks();
 
-        
+       
         System.out.println("Attempting to borrow book 1001: " + (library.borrowBook(1001) ? "Success" : "Failed"));
 
        
         System.out.println("Available Books: " + library.getAvailableBooks());
 
-       
         System.out.println("Attempting to return book 1001: " + (library.returnBook(1001) ? "Success" : "Failed"));
 
-        
         System.out.println("Available Books after return: " + library.getAvailableBooks());
     }
 }
